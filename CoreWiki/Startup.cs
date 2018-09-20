@@ -31,7 +31,7 @@ namespace CoreWiki
 			services.Configure<AppSettings>(Configuration);
 			services.ConfigureSecurityAndAuthentication();
 			services.ConfigureDatabase(Configuration);
-			services.ConfigureScopedServices();
+			services.ConfigureScopedServices(Configuration);
 			services.ConfigureRouting();
 			services.ConfigureLocalisation();
 			services.ConfigureApplicationServices();
@@ -43,7 +43,7 @@ namespace CoreWiki
 		{
 			app.ConfigureTelemetry();
 			app.ConfigureExceptions(env);
-			app.ConfigureSecurityHeaders();
+			app.ConfigureSecurityHeaders(env);
 			app.ConfigureRouting();
 			app.ConfigureDatabase();
 			var theTask = app.ConfigureAuthentication(userManager, roleManager);
